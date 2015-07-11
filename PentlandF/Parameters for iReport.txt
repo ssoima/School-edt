@@ -1,0 +1,20 @@
+dinhlinh/1849
+keepass: eReporting#41!
+
+References can be found in 
+SELECT * FROM xlib_logs;
+
+#####################################################
+report/de/audit_comm/erep_audit_standard
+
+* case_list --> DB-Table erp_tmp_print.tpr_id
+* printed_by --> DB-Table erp_lawyer_v.law_gid
+* date --> any date in the future YYYY/DD/MM
+* type --> SELECT lov_return_value FROM erp_lov_table WHERE lov_name =  'REPORT_TYPE_LOV'
+	2	Audit Committee
+	1	Managing Board
+* language --> 1 || 2
+* date2 --> any date later than the date before
+* is_draft --> Y || N
+
+SELECT * FROM xlib_logs;

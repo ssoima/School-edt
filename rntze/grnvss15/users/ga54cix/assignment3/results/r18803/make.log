@@ -1,0 +1,10 @@
+cc -Wall -Wextra -g -pedantic -fdiagnostics-color=always -Ilibraw/include -fno-strict-aliasing   -c -o src/traceroute.o src/traceroute.c
+cc -Wall -Wextra -g -pedantic -fdiagnostics-color=always -Ilibraw/include -fno-strict-aliasing   -c -o src/assignment3.o src/assignment3.c
+cd libraw/ && make
+make[1]: Entering directory '/root/abgabe/libraw'
+gcc -Iinclude -ggdb -Wall -Wextra -pedantic -fdiagnostics-color=always -O2 -fPIC -fno-strict-aliasing   -c -o src/raw.o src/raw.c
+gcc -Iinclude -ggdb -Wall -Wextra -pedantic -fdiagnostics-color=always -O2 -fPIC -fno-strict-aliasing   -c -o src/hexdump.o src/hexdump.c
+gcc -Iinclude -ggdb -Wall -Wextra -pedantic -fdiagnostics-color=always -O2 -fPIC -fno-strict-aliasing   -c -o src/checksum.o src/checksum.c
+ar rcs libraw.a src/raw.o src/hexdump.o src/checksum.o
+make[1]: Leaving directory '/root/abgabe/libraw'
+cc src/traceroute.o src/assignment3.o libraw/libraw.a -o trace6

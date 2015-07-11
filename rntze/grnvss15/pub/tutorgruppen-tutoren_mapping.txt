@@ -1,0 +1,53 @@
+  Gruppe  Tag         von     bis    Raum       Tutor                 Comments
+  ----------------------------------------------------------------------------
+  Mo-T1:  Montag      12:00 - 14:00  01.06.011  Max Pudelko
+  Mo-T2:  Montag      12:00 - 14:00  03.11.018  Stanislav Teplizki
+  Mo-T3:  Montag      12:00 - 14:00  00.08.036  Maximilian Weininger
+  Mo-T4:  Montag      12:00 - 14:00  01.09.014  Daniel Kowatsch
+  Mo-T5:  Montag      16:00 - 18:00  00.08.036  Stanislav Teplizki
+  Mo-T6:  Montag      16:00 - 18:00  02.07.023  Clemens Jonischkeit
+  Mo-T7:  Montag      16:00 - 18:00  00.08.059  Daniel Kowatsch
+  Mo-T8:  Montag      16:00 - 18:00  00.13.054  Maximilian Weininger
+  Mo-T9:  Montag      12:00 - 14:00  03.09.012  Stefan Fochler
+  Di-T1:  Dienstag    08:00 - 10:00  00.08.036  Martin Uhl
+  Di-T2:  Dienstag    16:00 - 18:00  00.08.036  Christian Lübben
+  Di-T3:  Dienstag    12:00 - 14:00  00.08.036  Jochen Hartl
+  Di-T4:  Dienstag    12:00 - 14:00  01.07.014  Martin Uhl
+  Di-T5:  Dienstag    16:00 - 18:00  00.08.059  Max Pudelko
+  Di-T6:  Dienstag    12:00 - 14:00  00.08.053  Jonas Andre
+! Di-T7:  Dienstag    17:00 - 19:00  N1135      Niklas Kluegel        [5]
+  Mi-T1:  Mittwoch    08:00 - 10:00  03.07.023  Dominik Schöffmann
+  Mi-T2:  Mittwoch    10:00 - 12:00  03.07.023  Moritz Pfeiffer       [2]
+  Mi-T3:  Mittwoch    12:00 - 14:00  00.08.038  Moritz Pfeiffer
+  Mi-T4:  Mittwoch    12:00 - 14:00  00.08.053  Markus Wesemann
+  Mi-T5:  Mittwoch    14:00 - 16:00  00.08.036  Clemens Jonischkeit
+  Mi-T6:  Mittwoch    14:00 - 16:00  00.08.053  Jochen Hartl
+  Mi-T7:  Mittwoch    11:00 - 13:00  01.13.010  Michael Schwarz
+  Mi-T8:  Mittwoch    16:00 - 18:00  1400       Boerge Kessner        [1,4]
+  Mi-T9:  Mittwoch    10:00 - 12:00  01.06.020  Stefan Fochler
+  Mi-T10: Mittwoch    12:00 - 14:00  00.08.055  Jonas Andre
+  Do-T1:  Donnerstag  08:00 - 10:00  03.07.023  Tobias Betz
+  Do-T2:  Donnerstag  12:00 - 14:00  00.13.036  Dominik Schöffmann
+  Do-T3:  Donnerstag  10:00 - 12:00  00.08.036  Armin Baur
+  Do-T4:  Donnerstag  12:00 - 14:00  01.10.011  Tobias Betz
+  Do-T5:  Donnerstag  12:00 - 14:00  00.08.059  Michael Schwarz
+  Do-T6:  Donnerstag  12:00 - 14:00  00.08.036  Armin Baur
+  Do-T7:  Donnerstag  16:00 - 18:00  00.13.054  Markus Wesemann
+  Do-T8:  Donnerstag  14:00 - 16:00  00.08.036  Niklas Klügel
+  Do-T9:  Donnerstag  10:00 - 12:00  00.08.059  Boerge Kessner
+  Do-T10: Donnerstag  12:30 - 14:30  00.08.055  Bernhard Blieninger
+  Fr-T1:  Freitag     14:00 - 16:00  00.08.038  Christian Lübben
+  Fr-T2:  Freitag     16:00 - 18:00  00.08.059  Bernhard Blieninger
+
+  Mo-P1:  Montag      12:00 - 14:00  03.07.023  Richard von Seck
+  Di-P1:  Dienstag    12:00 - 14:00  00.08.059  Richard von Seck
+  Mi-P1:  Mittwoch    12:00 - 14:00  03.07.023  Markus Ongyerth       [3]
+  Do-P1:  Donnerstag  12:00 - 14:00  03.07.023  Markus Ongyerth
+
+
+
+[1] Entfaellt am 6. Mai
+[2] Entfaellt am 29. April (FVV)
+[3] Entfaellt am 29. April
+[4] Entfaellt am 3. Juni
+[5] Entfaellt ab dem 17. Juni wegen Teilnehmermangel

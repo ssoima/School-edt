@@ -1,0 +1,9 @@
+Test launchable: Success
+Test recsmth: Success
+Test denies-short: Success
+Test denies-long: Success
+Test denies-outofrange: Success
+Test denies-inval: Success
+Test headercorrect: Success
+Test payloadcorrect: Failed
+Test reccorrect: Failed

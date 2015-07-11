@@ -1,0 +1,16 @@
+cc -Wall -Wextra -fdiagnostics-color=always -Ilibraw/include   -c -o src/wol.o src/wol.c
+cc -Wall -Wextra -fdiagnostics-color=always -Ilibraw/include   -c -o src/assignment1.o src/assignment1.c
+[01m[Ksrc/assignment1.c:[m[K In function '[01m[Kparse_mac[m[K':
+[01m[Ksrc/assignment1.c:49:11:[m[K [01;35m[Kwarning: [m[Kcomparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(i=0;i<strlen(hwaddr);i++){
+[01;32m[K           ^[m[K
+[01m[Ksrc/assignment1.c:52:3:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function '[01m[Kisxdigit[m[K' [-Wimplicit-function-declaration]
+   if(i%3!=2 && !isxdigit(hwaddr[i])) 
+[01;32m[K   ^[m[K
+cd libraw/; make
+make[1]: Entering directory '/root/abgabe/libraw'
+cc -Iinclude -Wall -Wextra -pedantic -O2 -fdiagnostics-color=always -fPIC   -c -o src/raw.o src/raw.c
+cc -Iinclude -Wall -Wextra -pedantic -O2 -fdiagnostics-color=always -fPIC   -c -o src/hexdump.o src/hexdump.c
+ar rcs libraw.a src/raw.o src/hexdump.o
+make[1]: Leaving directory '/root/abgabe/libraw'
+cc src/wol.o src/assignment1.o libraw/libraw.a -o wol

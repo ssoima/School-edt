@@ -1,0 +1,54 @@
+diff --git a/src/Arguments.java b/src/Arguments.java
+index 061a4db..681a25b 100644
+--- a/src/Arguments.java
++++ b/src/Arguments.java
+@@ -11,9 +11,9 @@ class Arguments {
+ 		System.out.println("This is the third exercise of grnvs 2015");
+ 		System.out.println("Usage:");
+ 		System.out.println("-i/--interface: The interface on which the frame should be sent");
+-		System.out.println("-t▸             The timeout that should be used for timed actions (default: 5)");
+-		System.out.println("-q▸             The attemtps that should be done per hop (default: 3)");
+-		System.out.println("-m▸             The maximum hops to trace over (default: 15)");
++		System.out.println("-t             The timeout that should be used for timed actions (default: 5)");
++		System.out.println("-q             The attemtps that should be done per hop (default: 3)");
++		System.out.println("-m             The maximum hops to trace over (default: 15)");
+ 		System.out.println("DST:            The destination ip6 address ");
+ 		System.out.println("-?/--help	    Print this help message");
+ 	}
+diff --git a/src/Assignment3.java b/src/Assignment3.java
+index 60e7495..b7a0403 100644
+--- a/src/Assignment3.java
++++ b/src/Assignment3.java
+@@ -3,11 +3,9 @@ import java.net.UnknownHostException;
+ 
+ public class Assignment3 {
+ 
+-	enum packtTypes{
+-		EXCEEDED = 1,
+-		UNREACHABLE,
+-		ECHOREPLY
+-	}
++	static final int EXCEEDED = 1;
++	static final int UNREACHABLE = 2;
++	static final int ECHOREPLY = 3;
+ 
+ /*====================================TODO===================================*/
+ 	/**
+@@ -146,7 +144,7 @@ public class Assignment3 {
+ 	 * @param hopIp A buffer in which the ip of the hop should be copied to
+ 	 *
+ 	 * @return 0 if the packet was not for us
+-	 *	  The fitting value from the packetTypes enum otherwise
++	 *	  The fitting value from the packetTypes defines
+ 	 */
+ 	private static int getHopIp(byte[] buffer, int len, short id, short seq,
+ 				    byte[] myIp, byte[] dstIp, byte[] sent,
+@@ -175,7 +173,7 @@ public class Assignment3 {
+ 	 * @param timeout The timeout to apply given in seconds
+ 	 *
+ 	 * @return 0 if the request timed out
+-	 *	  The fitting value from the packetTypes enum otherwise
++	 *	  The fitting value from the packetTypes defines
+ 	 */
+ 	private static int runAttempt(byte[] buffer, int len, byte[] myIp,
+ 				      byte[] dstIp, short id, short seq,

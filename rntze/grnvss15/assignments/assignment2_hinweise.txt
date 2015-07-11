@@ -1,0 +1,27 @@
+* Tester erkennt "Accepts correct Neighbor Advertisement" nicht obwohl es
+  richtig ausgegeben wird
+
+  Da wir versuchen den Output den einzelnen Programmschritten zuzuordnen (wird
+  für kommende Programmieraufgaben benötigt) muss die Ausgabe von
+  "<IP> is at <MAC>\n" in einem Zug erfolgen. D.h. (in Pseudocode)
+
+    System.out.print("<IP>");
+    System.out.print(" is at ");
+    System.out.print("<MAC>\n");
+
+  funktioniert nicht und soll/muss durch
+
+    s = "<IP>"
+    s += " is at "
+    s += "<MAC>\n"
+    System.out.print(s)
+
+  ersetzt[1] werden.
+  Insbesondere Java ist von diesem Problem betroffen. C buffert im Normalfall
+  den Output bis zum nächsten \n und gibt diesen dann vollständig aus.
+
+
+[1] String Concatenation in dieser Form ist O(n^2) (insbesondere in Schleifen),
+    und könnte durch printf oder andere effizientere Konstrukte vermieden werden.
+    Da hier aber sicher abgeschätzt werden kann wie oft concatiniert werden muss,
+    ist es hier eine akzeptable Lösung.

@@ -1,0 +1,62 @@
+git init gitproject                  // initialisiert ein project und gitproject ist der 
+					folder wo die dateien des projects sich befinden
+
+
+git status                           // zeigt status
+
+git add .                            // adds everything vom Folder
+
+git add filename		     // adds that file
+
+git commit -m " Beschreibung des Commits oder name"     // macht die enderung
+
+git log                              // zeigt, was vorher noch gemacht wurde
+
+git diff                             // zeigt mir was geendert wurde
+
+git diff --cached                    // zeigt mir was vorher(das letzte mal) geendert wurde 
+
+Wenn der log zu groﬂ wird muss ich Shift + zz clicken um den editor zu herunterfahren(Exit)
+
+git log --oneline                    // zeigt mir nicht mehr den hash und autor, nur Namen der commits.
+
+git commit -a -m "name"             // macht fur alle dateien commit
+
+git commit -am
+
+git status -s                       // zeigt was modified wurde
+
+git checkout                        // change branch
+
+git clean -f			    // remove untracked files from current directory
+
+git clean -df			    // remove untracked files and untracked directory from current dir
+
+git branch			    // shows all branches
+
+git branch <branch> 		    // Create a new branch
+
+git branch -d <branch>              // Deletes that branch
+
+git rebase			    // change the base of a feature
+
+git rebase -i			    // interactive rebase
+
+sed  change text from files
+sed -i "s/(source)/(dest)/g" *.txt
+\ for special signs
+
+"&lt; p &gt; this is sergius paragraph &lt; /p &gt;"
+
+alter session set nls_date_format = 'DD.MM.YYYY hh24:MI:SS';
+
+SELECT * FROM USER_DEPENDENCIES
+
+rentenversicherungnummer 542004945052
+1) san serif und Teimes new roman to arial
+
+
+<font size=\"14\"
+<font fontName="Arial" size="14" isBold="false"/>
+
+20kdiff mai trebuie facut

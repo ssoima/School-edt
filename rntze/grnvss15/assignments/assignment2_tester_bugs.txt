@@ -1,0 +1,12 @@
+Bis SVN rev 14303 (2015-06-01 22:44:54 CEST) waren die Ergebnisse für "Handles
+Neighbor Discovery options correctly". Der Tester hat unbeabsichtigt Daten
+geschickt und dennoch ein Ausgabe erwartet. Das Problem wurde behoben, der
+Tester sendet nun die richtigen Daten, sodass bei richtiger Verarbeitung eine
+Ausgabe der MAC Adresse erfolgen kann.
+
+Da es ein Bug im Tester war, wurden die Cooldowns für den Tester zurückgesetzt.
+
+
+Weiterhin wurde aus "Rejects invalid IPv6 Header" der Test "Ignores Flow Label
+and Traffic Class" extrahiert. Dieser (neue) Test überprüft ob das Neighbor
+Advertisement auch bei gesetzter Traffic Class bzw. Flow Label akzeptiert wird.

@@ -1,0 +1,76 @@
+en/20f_6k
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/20f_6k/erep_20f_6k&_repFormat=pdf&_dataSource=dereport&_outFilename=20F/6k_20140526_175207.pdf&_repLocale=en_EN&_repEncoding=UTF-8&PRINTED_BY=Z002TS2K&P_QUARTER=0&P_YEAR=0&P_TYPE=
+
+
+
+en/20f_6k_diff
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/20f_6k/erep_20f_6k&_repFormat=pdf&_dataSource=dereport&_outFilename=20F/6k_20140526_175207.pdf&_repLocale=en_EN&_repEncoding=UTF-8&PRINTED_BY=Z002TS2K&P_QUARTER=0&P_YEAR=0&P_TYPE=
+
+
+
+en/audit_comm
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/audit_comm/erep_audit_standard&_repFormat=rtf&_dataSource=dereport&_outFilename=Cases_20140526_173149.rtf&_repLocale=en_EN&_repEncoding=UTF-8&CASE_LIST=6449&PRINTED_BY=Z002TS2K&TYPE=1&LANGUAGE=1&DATE=2014/05/26&DATE2=2014/05/26&IS_DRAFT=N
+
+
+
+en/audit_report
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/audit_report/erep_audit_report&_repFormat=rtf&_dataSource=dereport&_outFilename=Cases_20140526_173421.rtf&_repLocale=en_EN&_repEncoding=UTF-8&CASE_LIST=6450&PRINTED_BY=Z002TS2K&TYPE=4&LANGUAGE=1&DATE=2014/05/26&DATE2=2014/05/26&IS_DRAFT=N
+
+
+
+en/larl
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/larl/erep_larl_standard&_repFormat=pdf&_dataSource=dereport&_outFilename=PH6_20140526_173019.pdf&_repLocale=en_EN&_repEncoding=UTF-8&CASE_LIST=6448&PRINTED_BY=Z002TS2K&IS_FINAL=Draft
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/larl/erep_auditor_standard&_repFormat=pdf&_dataSource=dereport&_outFilename=cases_20140526_180758.pdf&_repLocale=en_EN&_repEncoding=UTF-8&CASE_LIST=6455&PRINTED_BY=Z002TS2K
+
+
+
+en/projects
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/projects/ma_projects&_repFormat=pdf&_dataSource=dereport&_outFilename=projects_20140526_175819.pdf&_repLocale=en_EN&_repEncoding=UTF-8&CASE_LIST=6452&PRINTED_BY=Z002TS2K&ORDER_BY=9453b2bfafdb92f6475b0ab3be621492ed0cb9b6
+
+
+
+en/standard
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/standard/erep_standard&_repFormat=pdf&_dataSource=dereport&_outFilename=cases_20140526_172457.pdf&_repLocale=en_EN&_repEncoding=UTF-8&CASE_LIST=6445&PRINTED_BY=Z002TS2K
+
+
+
+en/standard_comparison
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/standard_comparison/erep_standard_comp&_repFormat=pdf&_dataSource=dereport&_outFilename=cases_20140526_172738.pdf&_repLocale=en_EN&_repEncoding=UTF-8&CASE_LIST_ACT=3556&CASE_LIST_PREV=3557&PRINTED_BY=Z002TS2K
+
+
+
+en/standard_drf
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/standard_drf/erep_standard&_repFormat=pdf&_dataSource=dereport&_outFilename=cases_20140526_172255.pdf&_repLocale=en_EN&_repEncoding=UTF-8&CASE_LIST=6444&PRINTED_BY=Z002TS2K
+
+
+
+en/standard_revision
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/en/standard_revision/erep_standard&_repFormat=rtf&_dataSource=dereport&_outFilename=cases_20140526_172607.rtf&_repLocale=en_EN&_repEncoding=UTF-8&CASE_LIST=6446&PRINTED_BY=Z002TS2K
+
+
+
+de/20f_6k_diff
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/de/20f_6k_diff/erep_20f_6k_de&_repFormat=pdf&_dataSource=dereport&_outFilename=20F_6K_COMPARISON_20140526_180337.pdf&_repLocale=de_DE&_repEncoding=UTF-8&ACT_YEAR=2021&ACT_QUARTER=403&PAST_YEAR=2021&PAST_QUARTER=404&P_TYPE=&PRINTED_BY=Z002TS2K
+
+
+
+de/audit_comm
+
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/de/audit_comm/erep_audit_standard&_repFormat=rtf&_dataSource=dereport&_outFilename=Cases_20140526_180509.rtf&_repLocale=de_DE&_repEncoding=UTF-8&CASE_LIST=6453&PRINTED_BY=Z002TS2K&TYPE=1&LANGUAGE=2&DATE=2014/05/26&DATE2=2014/05/26&IS_DRAFT=N
+
+
+
+de/audit_report
+show url: http://localhost:18070/jasperserver52/report?_repName=dereport/de/audit_report/erep_audit_report&_repFormat=rtf&_dataSource=dereport&_outFilename=Cases_20140526_180627.rtf&_repLocale=de_DE&_repEncoding=UTF-8&CASE_LIST=6454&PRINTED_BY=Z002TS2K&TYPE=4&LANGUAGE=2&DATE=2014/05/26&DATE2=2014/05/26&IS_DRAFT=N
