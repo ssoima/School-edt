@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec java -Djava.library.path=./deps -jar trace6.jar "$@"

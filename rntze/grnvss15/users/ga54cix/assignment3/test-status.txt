@@ -1,3 +1,0 @@
-r18804: queued abgabe@r18803 for testing at 2015-06-21 17:26:16 CEST
-r18804: started testing abgabe@r18803, target: 2015-06-21 17:26:16 CEST, now: 2015-06-21 17:27:16 CEST
-r18804: test abgabe@r18803 completed

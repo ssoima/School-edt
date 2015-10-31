@@ -1,4 +1,0 @@
-2015-07-27
- - endterm_2013_solution:
-   In der Loesung von Aufgabe 2a) waren A und B vertauscht.
-
