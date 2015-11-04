@@ -1,0 +1,100 @@
+<md-subheader layout-padding class="background-f5 overview-header md-no-sticky">Stations</md-subheader>
+<div id="station" class="content-overview" layout-padding layout="column" style="max-width: 1366px !important;">
+    <md-button ng-show="ctrl.getMode()==='wizard'" id="addBtn" aria-label="Create" ng-click="ctrl.toggleRight()" class="md-fab md-primary add-button">
+        <md-icon md-svg-src="/static/images/material-design-icons/content/svg/production/ic_add_24px.svg"></md-icon>
+    </md-button>
+    <md-grid-list  id="stationsContainer" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3" md-row-height-gt-md="6:5" md-row-height="6:5" md-gutter="18px" md-gutter-gt-sm="18px">
+
+        <md-grid-tile ng-repeat="station_rec in stations"  md-colspan-sm="1" class="tile" id="{{ $index }}" data-drop="station.isDroppable(station_rec.type)"
+                      data-jqyoui-options="{hoverClass: 'blue200-background'}"
+                      jqyoui-droppable="{index: {{$index}}, multiple:true, stack: true, onOver: 'onOver', onDrop:'onDrop'}"
+                      ng-dblclick="station.showAdvancedStation(station_rec.id)">
+            <div layout="row" flex>
+                <div flex="" layout="row" layout-align="end center">
+                    <md-icon class="type-icon" md-svg-src="{{station.getImage(station_rec.type)}}"></md-icon>
+                </div>
+                <div class="tile-connector" flex="10" layout="row" layout-align="end end">
+                    <md-icon md-font-set="material-icons">trending_flat</md-icon>
+                </div>
+            </div>
+
+            <span class="tile-span">&nbsp;</span>
+            <md-grid-tile-footer class="tile-footer">
+
+                <div layout="row" layout-align="start center">
+                    <h3 flex>{{station_rec.name + ' ('+station_rec.task_count+')'}}</h3>
+                    <md-menu md-offset="0 -7">
+                        <md-button aria-label="Open mode menu" class="md-icon-button" ng-click="$mdOpenMenu()">
+                            <md-icon md-menu-origin md-font-set="material-icons">more_vert</md-icon>
+                        </md-button>
+                        <md-menu-content width="4" >
+                            <md-menu-item>
+                                <md-button ng-click="station.removeStation($index);$mdCloseMenu()">
+                                    <span md-menu-align-target>Delete</span>
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+
+                </div>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+
+    </md-grid-list>
+</div>
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+    <md-subheader class="md-no-sticky">Create Station</md-subheader>
+    <md-content ng-controller="DetailController as dtlctrl" layout-padding>
+        <form name="stationForm">
+            <md-input-container>
+                <label for="name">Name</label>
+                <input required type="text" id="name"
+                       ng-model="station.name" md-sidenav-focus>
+                <div ng-messages="stationForm.description.$error">
+                    <div ng-if="station.name===null" ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Description</label>
+                <textarea ng-model="station.description" columns="1" md-maxlength="150"></textarea>
+            </md-input-container>
+            <md-input-container>
+                <md-select required ng-model="station.initialType" style="min-width: 200px;" placeholder="Type">
+                    <md-select-label>{{station.initialType ? station.initialType.name : 'Select type'}}</md-select-label>
+                    <md-option ng-value="t" ng-repeat="t in station.stationTypes">{{t.name}}</md-option>
+                </md-select>
+                <div ng-messages="stationForm.description.$error">
+                    <div ng-if="station.type===null" ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label for="numberOfWorkers">Number of {{ station.initialType.name }}s</label>
+                <input min="1" required type="number" id="numberOfWorkers"
+                       ng-model="station.numberOfWorkers">
+                <div ng-messages="stationForm.description.$error">
+                    <div ng-if="station.numberOfWorkers===null" ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <div id="insertPositions" layout="horizontal">
+                <md-select aria-label="position" ng-model="station.insertPosition">
+                    <md-option value="Before">before</md-option>
+                    <md-option value="After">after</md-option>
+                </md-select>
+                <md-select aria-label="Insertion Position" ng-model="station.siblingStation" style="margin-left: 8px;">
+                    <md-select-label>{{ station.siblingStation ? station.siblingStation.name : 'Select station' }}</md-select-label>
+                    <md-option ng-value="st" ng-repeat="st in stations">{{st.name}}</md-option>
+                </md-select>
+
+            </div>
+            <h4 style="color: red;" ng-if="station.position_error">
+                    {{ station.position_error }}
+            </h4>
+        </form>
+        <md-button ng-click="dtlctrl.close()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-disabled="!station.siblingStation || !station.name" ng-click="station.addStation();dtlctrl.close()" class="md-default md-raised">
+            Save
+        </md-button>
+    </md-content>
+</md-sidenav>

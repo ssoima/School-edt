@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="nextlap">
+<head>
+    <base href="/" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="dmorina">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/dataTable.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <title>Nextlap</title>
+</head>
+<body ng-controller="HomeController as ctrl">
+    <div id="appBar" layout="row">
+        <md-toolbar ng-class="{'md-blue-theme':ctrl.getMode()==='wizard', 'md-purple-theme': ctrl.getMode()==='advanced', 'md-amber-theme': ctrl.getMode()==='layout'}">
+            <div class="md-toolbar-tools" layout="row">
+                <ng-include src="'/static/templates/breadcrumb.html'" layout="row"></ng-include>
+                <span flex=""></span>
+                <div ng-if="ctrl.showWorkSteps()" layout="row" layout-align="end center" ng-cloak="">
+                    <div ng-click="ctrl.switchStep('stations')" ng-class="{'active': ctrl.stepId==1}" class="main-nav-item clickable">Station</div>
+                    <md-icon md-menu-origin md-font-set="material-icons">chevron_right</md-icon>
+                    <div ng-click="ctrl.switchStep('workstations')" ng-class="{'active': ctrl.stepId==2}" class="main-nav-item clickable">Work Station</div>
+                    <md-icon md-menu-origin md-font-set="material-icons">chevron_right</md-icon>
+                    <div ng-click="ctrl.switchStep('equipments')" ng-class="{'active': ctrl.stepId==3}" class="main-nav-item clickable">Equipment</div>
+                </div>
+
+            </div>
+        </md-toolbar>
+    </div>
+    <div id="main" layout="row" ng-controller="NotifyController as notifyCtrl" style="background-color: #f5f5f5; height: calc((100vh - 64px));">
+        <ng-include ng-class="{'sidenav-large': ctrl.getMode()==='wizard'}" ng-if="ctrl.showLeftSideNav()" src="'/static/templates/assignment-source.html'" layout="row"></ng-include>
+        <div flex role="main" tabindex="-1" layout="column">
+            <!--div ng-if="ctrl.showTabs()" layout="row" layout-align="end start">
+                <md-tabs ng-if="ctrl.showTabs()" md-dynamic-height class="md-tabs-home">
+                    <md-tab label="search" md-on-select="ctrl.navigate('/')"></md-tab>
+                    <md-tab label="browse" md-on-select="ctrl.navigate('/browse')"></md-tab>
+                </md-tabs>
+            </div-->
+            <md-content layout-padding="" flex="" md-scroll-y="" ng-view="" style="background-color: #f5f5f5;padding:0 !important;">
+            </md-content>
+        </div>
+    </div>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-touch/angular-touch.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-dragdrop/src/angular-dragdrop.min.js"></script>
+    <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/utils/Draggable.min.js"></script>
+    <script type="text/javascript" src="js/nextlap.js"></script>
+    <script type="text/javascript" src="js/nextlap.config.js"></script>
+    <script type="text/javascript" src="js/nextlap.routes.js"></script>
+    <script type="text/javascript" src="js/authentication/authentication.module.js"></script>
+    <script type="text/javascript" src="js/authentication/services/authentication.service.js"></script>
+    <script type="text/javascript" src="js/authentication/controllers/register.controller.js"></script>
+    <script type="text/javascript" src="js/authentication/controllers/login.controller.js"></script>
+    <script type="text/javascript" src="js/core/core.module.js"></script>
+    <script type="text/javascript" src="js/core/services/entity.service.js"></script>
+    <script type="text/javascript" src="js/core/services/stationdetails.service.js"></script>
+    <script type="text/javascript" src="js/core/services/stationtasks.service.js"></script>
+    <script type="text/javascript" src="js/core/services/equipment.service.js"></script>
+    <script type="text/javascript" src="js/home/home.module.js"></script>
+    <script type="text/javascript" src="js/home/controllers/home.controller.js"></script>
+    <script type="text/javascript" src="js/factory/factory.module.js"></script>
+    <script type="text/javascript" src="js/factory/controllers/factory.controller.js"></script>
+    <script type="text/javascript" src="js/factory/controllers/assembly-line.controller.js"></script>
+    <script type="text/javascript" src="js/factory/controllers/section.controller.js"></script>
+    <script type="text/javascript" src="js/factory/controllers/cluster.controller.js"></script>
+    <script type="text/javascript" src="js/factory/controllers/station.controller.js"></script>
+    <script type="text/javascript" src="js/factory/controllers/workstation.controller.js"></script>
+    <script type="text/javascript" src="js/factory/controllers/equipment.controller.js"></script>
+    <script type="text/javascript" src="js/factory/services/factory.service.js"></script>
+    <script type="text/javascript" src="js/assignment-source/assignment-source.module.js"></script>
+    <script type="text/javascript" src="js/assignment-source/controllers/assignment-source.controller.js"></script>
+    <script type="text/javascript" src="js/assignment-source/services/assignment-source.service.js"></script>
+    <script type="text/javascript" src="js/advanced/advanced.module.js"></script>
+    <script type="text/javascript" src="js/advanced/services/advanced.service.js"></script>
+    <script type="text/javascript" src="js/advanced/controllers/advanced.controller.js"></script>
+    <script type="text/javascript" src="js/data-table/data-table.module.js"></script>
+    <script type="text/javascript" src="js/data-table/controllers/data-table.controller.js"></script>
+    <script type="text/javascript" src="js/data-table/directives/data-table.directive.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div class="advanced-tabs" layout="row" layout-align="start center" >
+    <md-tabs class="advanced-tab-switch">
+        <md-tab label="sequence" md-on-select="advanced.switchStationTab('sequence')"></md-tab>
+        <md-tab label="configuration" md-on-select="advanced.switchStationTab('configuration')"></md-tab>
+        <md-tab label="overview" md-on-select="advanced.switchStationTab('overview')"></md-tab>
+    </md-tabs>
+    <span flex=""></span>
+    <div flex="10" class="station-nav" layout="row" layout-align="end center">
+        <md-icon ng-click="advanced.switchStation(-1)" ng-disabled="advanced.isFirstStation()" class="clickable md-icon-previous" md-font-set="material-icons">keyboard_arrow_left</md-icon>
+        <p>{{advanced.currentStation}}</p>
+        <md-icon ng-click="advanced.switchStation(1)" ng-disabled="advanced.isLastStation()" class="clickable md-icon-next" md-font-set="material-icons">keyboard_arrow_right</md-icon>
+    </div>
+
+
+
+</div>
+
+<ng-include ng-if="ctrl.getStationTab()==='sequence'" src="'/static/templates/advanced/sequence.html'"></ng-include>
+<ng-include ng-if="ctrl.getStationTab()==='overview'" src="'/static/templates/advanced/overview.html'"></ng-include>
+<ng-include ng-if="ctrl.getStationTab()==='configuration'" src="'/static/templates/advanced/configuration.html'"></ng-include>

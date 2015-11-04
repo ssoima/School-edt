@@ -1,0 +1,47 @@
+<div ng-controller="LeftSearchController as searchctrl" layout="row">
+    <md-sidenav ng-class="{'sidenav-large': ctrl.getMode()==='wizard'}" md-is-locked-open="true" md-component-id="left"
+                class="md-sidenav-left md-whiteframe-z2" tabindex="-1"
+                layout="column" flex>
+
+        <!--md-divider></md-divider-->
+        <md-toolbar class=md-white-theme>
+            <md-subheader layout-padding class="source-subheader md-no-sticky">Tasks <md-icon class="move-to-right" md-menu-origin md-font-set="material-icons">play_arrow</md-icon></md-subheader>
+
+        </md-toolbar>
+        <md-content role="navigation" flex>
+            <ng-include ng-if="ctrl.stepId==1 && ctrl.getMode()=='wizard' || ctrl.stationTab==='sequence' && ctrl.getMode()=='advanced'" src="'/static/templates/part-assignment.html'"></ng-include>
+            <ng-include ng-if="ctrl.stepId==2 && ctrl.getMode()==='wizard'" src="'/static/templates/workstation-assignment.html'"></ng-include>
+            <ng-include ng-if="ctrl.stepId==3 && ctrl.getMode()==='wizard'" src="'/static/templates/equipment-assignment.html'"></ng-include>
+            <ng-include ng-if="ctrl.stationTab==='configuration' && ctrl.getMode()==='advanced'" src="'/static/templates/equipment-types.html'"></ng-include>
+        </md-content>
+        <div style="min-height: 120px;">
+        <div class="search-autocomplete">
+            <div layout="row" layout-align="center center">
+                    <md-switch class="unassigned-only" flex="95" ng-model="searchctrl.unassignedOnly" aria-label="unassigned parts only">show all</md-switch>
+            </div>
+            <div layout="row" layout-align="center center">
+                <div layout="row" class="search-box" flex="95">
+                        <md-autocomplete flex="80" class="left-search" ng-disabled="!searchctrl.results.length"
+                                      md-no-cache="searchctrl.noCache"
+                                      md-selected-item="searchctrl.selectedItem"
+                                      md-search-text-change="searchctrl.searchTextChange(searchctrl.searchText)"
+                                      md-search-text="searchctrl.searchText"
+                                      md-selected-item-change="searchctrl.selectedItemChange(item)"
+                                      md-items="item in searchctrl.querySearch(searchctrl.searchText)"
+                                      md-item-text="item.display" md-min-length="0"
+                                      placeholder="Search"
+                                      md-menu-class="sidebar-search-dropdown">
+                        <md-item-template>
+                            <ng-include src="'/static/templates/search-partial.html'"></ng-include>
+                        </md-item-template>
+                        <md-not-found>
+                            No matches found for "{{ctrl.searchText}}".
+                        </md-not-found>
+                    </md-autocomplete>
+                    <md-icon md-menu-origin md-font-set="material-icons">search</md-icon>
+                </div>
+        </div>
+        </div>
+    </div>
+    </md-sidenav>
+</div>

@@ -1,0 +1,23 @@
+{
+  "name": "nextlap-ip1",
+  "version": "0.0.1",
+  "homepage": "https://",
+  "description": "NextLAP IP-1",
+  "dependencies": {
+    "jquery": "2.1.4",
+    "underscore": "1.8.3",
+    "angular": "1.4.7",
+    "angular-route": "1.4.7",
+    "angular-animate": "1.4.7",
+    "angular-sanitize": "1.4.7",
+    "angular-cookies": "1.4.7",
+    "angular-touch": "1.4.7",
+    "angular-material": "0.10.1",
+    "angular-dragdrop": "1.0.9",
+    "jquery-ui-touch-punch": "",
+    "ng-file-upload": ""
+  },
+  "resolutions": {
+    "angular": "1.4.7"
+  }
+}

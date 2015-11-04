@@ -1,0 +1,45 @@
+<div layout="column" layout-padding class="advanced-overview">
+    <div flex style="background-color: #ffffff" class="pole">
+        <h3 class="pole-header">North</h3>
+        <div layout="row">
+            <div ng-repeat="worker in advanced.northWorkstations" flex="{{advanced.flexWidth}}">
+                <div layout="row" layout-align="start center">
+                    <h4 class="overview-worker-header">{{worker.name}}</h4>
+                    <h5 class="time-lapse" ng-class="{'timelapse-ok': advanced.getTimeLapse(worker.id)<=88, 'timelapse-error': advanced.getTimeLapse(worker.id)>88}">{{advanced.getTimeLapse(worker.id) + ' seconds'}}</h5>
+                </div>
+                <div class="workstation-equipments" layout="row">
+                    <div layout="column">
+                        <div class="equipment-item" ng-repeat="eq in worker.equipments">
+                            <span>{{eq.name}} <br><span class="eq-type">{{eq.type}}</span></span>
+                        </div>
+                    </div>
+                    <div class="color-54" ng-if="!worker.equipments.length">
+                            No equipments assigned
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div flex style="background-color: #ffffff; margin-top: 20px;" class="pole">
+        <h3 class="pole-header">South</h3>
+        <div layout="row">
+            <div ng-repeat="worker in advanced.southWorkstations" flex="{{advanced.flexWidth}}">
+                <div layout="row" layout-align="start center">
+                    <h4 class="overview-worker-header">{{worker.name}}</h4>
+                    <h5 class="time-lapse" ng-class="{'timelapse-ok': advanced.getTimeLapse(worker.id)<=88}">{{advanced.getTimeLapse(worker.id) + ' seconds'}}</h5>
+                </div>
+                <div class="workstation-equipments" layout="row">
+                    <div layout="column">
+                        <div class="equipment-item" ng-repeat="eq in worker.equipments">
+                            <span>{{eq.name}} <br><span class="eq-type">{{eq.type}}</span></span>
+                        </div>
+                    </div>
+
+                    <div class="color-54" ng-if="!worker.equipments.length">
+                        No equipments assigned
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

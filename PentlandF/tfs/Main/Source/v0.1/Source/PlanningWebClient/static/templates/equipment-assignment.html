@@ -1,0 +1,63 @@
+<md-list>
+    <div ng-repeat="item in searchctrl.filteredResults" ng-hide="searchctrl.getRootNodeStatus(item)==='complete' && !searchctrl.unassignedOnly">
+        <div class="root-list-item" ng-click="item.is_expanded=!item.is_expanded;searchctrl.notifyWorkStationChange(item.id)">
+            <md-list-item  md-ink-ripple="#2196f3"  class="md-2-line">
+                <md-icon style="margin:auto;" ng-class="{'toggled': !item.is_expanded}"
+                         md-svg-src="md-toggle-arrow" class="md-toggle-icon"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>{{ item.name }}</h3>
+                    <!--p>{{ uniqueOfProperty(item.tasks, 'stationId').length? 'Stations: '+uniqueOfProperty(item.tasks, 'stationId'):''}}</p-->
+                </div>
+                <span layout="row" layout-align="end center" style="margin:auto;">
+                    <!--div ng-class="{'circle': item.status!=='complete',
+                    'background-gray': item.status==='nothing', 'background-orange': item.status==='partial'}" ></div-->
+                    <md-icon ng-if="searchctrl.getRootNodeStatus(item)==='nothing'" md-svg-src="/static/images/ic_unassigned_24px.svg"></md-icon>
+                    <md-icon ng-if="searchctrl.getRootNodeStatus(item)==='partial'" md-svg-src="/static/images/ic_partially_assigned_24px.svg"></md-icon>
+                </span>
+            </md-list-item>
+        </div>
+        <md-list class="animate-show inner-list-0" ng-show="item.is_expanded && item.parts.length" id="part-list" flex>
+            <div ng-hide="part.remaining_tasks==0 && !searchctrl.unassignedOnly" ng-repeat="part in item.parts">
+                <div  class="part-list-item"  style="color: #000;"
+                     aria-controls="task-item"  flex  ng-click="part.is_expanded = !part.is_expanded">
+                    <md-list-item md-ink-ripple="#2196f3" class="md-2-line" >
+                        <md-icon style="margin:auto auto auto 8%;" ng-class="{'toggled': !part.is_expanded}"
+                                 md-svg-src="md-toggle-arrow" class="md-toggle-icon"></md-icon>
+                        <div class="md-list-item-text inner-list-item-text">
+                            <h3>{{ part.name }}</h3>
+                            <h4>{{ part.number }}</h4>
+                            <p>{{ uniqueOfProperty(part.tasks, 'equipment_name').length? uniqueOfProperty(part.tasks, 'equipment_name'):''}}</p>
+                        </div>
+                        <span layout="row" layout-align="end center" style="margin:auto;">
+                            <!--div ng-class="{'circle': searchctrl.countOfProperty(part.tasks, 'workstation_id').length !== part.tasks.length && item.status!=='complete',
+                            'background-gray': !searchctrl.countOfProperty(part.tasks, 'workstation_id').length,
+                            'background-orange': searchctrl.getPartOrangeClass(part.tasks, item.name, part.name)}"></div-->
+                            <md-icon ng-if="part.total_tasks==part.remaining_tasks" md-svg-src="/static/images/ic_unassigned_24px.svg"></md-icon>
+                            <md-icon ng-if="part.remaining_tasks<part.total_tasks && part.remaining_tasks>0" md-svg-src="/static/images/ic_partially_assigned_24px.svg"></md-icon>
+                        </span>
+                    </md-list-item>
+                </div>
+                <md-list ng-show="part.is_expanded" class="animate-show inner-list-2" id="task-list" flex>
+                    <div class="draggable-box" data-type="task" data-parent-id="{{ part.id }}" data-index="{{ $index }}" data-id="{{ task.id }}" data-drag="true"
+                         data-parent-parent-id="{{ item.id }}"
+                         data-jqyoui-options="{revert: 'invalid', helper: 'clone', scroll:false, cursor:'crosshair', containment:$('body'), appendTo: 'body'}"
+                         jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart: 'drag'}" style="color: #000;"
+                         aria-controls="task-item" ng-repeat="task in part.tasks" flex>
+                        <md-list-item md-ink-ripple="#2196f3" class="md-2-line" >
+                            <div class="md-list-item-text inner-task-item">
+                                <h3 style="">{{ task.name }}</h3>
+
+                                <p>{{ task.equipment_name ? task.equipment_name : '' }}</p>
+                            </div>
+                        <span layout="row" layout-align="end center" style="margin:auto;">
+                            <!--div ng-class="{'circle': !task.workstation_id && item.status!=='complete', 'background-gray': !task.workstation_id}"></div-->
+                            <md-icon ng-if="!task.equipment_id" md-svg-src="/static/images/ic_unassigned_24px.svg"></md-icon>
+                        </span>
+                        </md-list-item>
+                    </div>
+                </md-list>
+            </div>
+        </md-list>
+        <md-divider ng-show="!$last"></md-divider>
+    </div>
+</md-list>

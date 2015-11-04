@@ -1,0 +1,27 @@
+<md-toolbar class="md-white-theme">
+    <md-subheader layout-padding class="source-subheader md-no-sticky">Workstation Parts
+        <md-icon  md-menu-origin md-font-set="material-icons">play_arrow</md-icon>
+    </md-subheader>
+</md-toolbar>
+<md-content role="navigation" flex>
+    <md-list ng-show="advanced.equipment.id">
+        <div ng-repeat="item in advanced.workerData" ng-hide="item.task!='Pick' || item.equipmentDriver_config">
+            <div class="draggable-box" data-parent-id="" data-id="{{ item.id }}" data-index="{{ $index }}" data-type="workstation-part"
+                 data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', scroll:false, cursor:'crosshair', containment:$('body'), appendTo: 'body'}"
+                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                <md-list-item md-ink-ripple="#2196f3" class="md-3-line">
+                    <div class="md-list-item-text">
+                        <h3>{{ item.name}}</h3>
+                        <h4>{{item.number}}</h4>
+
+                    </div>
+                <span layout="row" layout-align="end center" style="margin:auto;">
+                    <md-icon ng-if="item.equipmentId==null" md-svg-src="/static/images/ic_unassigned_24px.svg"></md-icon>
+                </span>
+                </md-list-item>
+            </div>
+            <md-divider ng-show="!$last"></md-divider>
+        </div>
+    </md-list>
+    <div class="no-content" ng-hide="advanced.equipment.id">No parts to show</div>
+</md-content>

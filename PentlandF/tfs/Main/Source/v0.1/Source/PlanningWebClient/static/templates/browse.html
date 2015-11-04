@@ -1,0 +1,15 @@
+<div ng-controller="FactoryController as fc" layout="column" layout-align="center center">
+    <md-content class="browse-content">
+        <div ng-repeat="factory in fc.factories" ng-animate=" 'animate' ">
+            <md-card>
+                <!--img ng-src="/static/images/{{ fc.getImage(factory.name) }}.png" class="md-card-image"-->
+                <md-card-content>
+                    <h2 ng-href="{{'/'}}"><a ng-href="{{'/'+'browse/factory/'+factory.id+''}}">{{ factory.name}}</a></h2>
+                    <p>
+                        {{ factory.description }}
+                    </p>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+</div>

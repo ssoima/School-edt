@@ -1,0 +1,141 @@
+<md-data-table class="table">
+    <div class="md-data-table-card-header" layout="row" layout-align="start center">
+        <div class="md-data-table-card-header-title">
+            <!--md-button ng-class="{'selected': advanced.isWorkstationSelected({id:null})}" ng-click="advanced.setSelectedWorkStation({id:null})">U/A</md-button-->
+            <md-button ng-class="{'selected': advanced.isWorkstationSelected(worker)}" ng-click="advanced.setSelectedWorkStation(worker)" ng-repeat="worker in advanced.data.workers">
+                {{worker.name}}
+            </md-button>
+        </div>
+    </div>
+    <div class="table-content">
+        <div class="md-data-table-header" layout="row" layout-align="start center">
+            <md-checkbox aria-label="select"></md-checkbox>
+            <div class="md-data-table-header-column" flex="20" layout="row" layout-alignment="start center">
+                Name
+            </div>
+            <div class="md-data-table-header-column" flex layout="row" layout-alignment="start center">
+                Type
+            </div>
+            <div class="md-data-table-header-column" flex layout="row" layout-alignment="start center">
+                IP Address
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <div>
+            <div ng-repeat="item in advanced.workstationEquipments" >
+                <div class="md-data-table-row" layout="row" layout-align="start center"
+                     ng-class="{'md-data-table-last-row': $last, 'selected': advanced.isSelected(item)}">
+                    <md-checkbox aria-label="select" ng-click="advanced.toggle(item)"></md-checkbox>
+                    <div class="md-data-table-row-cell cell-text" flex="20">{{item.name}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex>{{item.type}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex>{{item.address}}</div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+        </div>
+    </div>
+    <div ng-show="!advanced.workerData.length" class="animate-show">
+        <div class=" md-data-table-footer md-data-table-row md-data-table-row-cell cell-text" layout="row" layout-align="start center">There are no equipments that belong to this workstation</div>
+        <md-divider></md-divider>
+    </div>
+
+    <div layout="row" layout-align="end center" class="md-data-table-footer">
+        <div ng-if="!advanced.isWorkstationSelected({id:null})" class="md-actions" layout="row" layout-align="start center">
+            <md-button ng-click="advanced.openEquipmentSidenav('create')" aria-label="top" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">add</md-icon>
+                Create
+            </md-button>
+        </div>
+        <div flex=""></div>
+        <div ng-show="advanced.selectedItems.length==1" class="md-actions" layout="row" layout-align="end center">
+            <md-button ng-click="advanced.openEquipmentSidenav('update')" aria-label="delete" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">settings</md-icon>
+                Edit
+            </md-button>
+            <md-button ng-click="advanced.moveItem($event)" aria-label="move" class="md-action-icon md-action-button">
+                <md-icon md-svg-src="/static/images/ic_reassign_24px.svg"></md-icon>
+                Reassign
+            </md-button>
+            <md-button ng-click="advanced.deleteEquipment()" aria-label="delete" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">delete</md-icon>
+                Remove
+            </md-button>
+            <!--md-button aria-label="more" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">more_vert</md-icon>
+            </md-button-->
+        </div>
+
+    </div>
+</md-data-table>
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" layout="row" ng-class="{'extended-sidenav': advanced.equipment.type.id<4}" md-component-id="right">
+    <ng-include class="part-drag-sidenav" layout="column" src="'/static/templates/workstation-parts.html'" ng-show="advanced.equipment.type.id<4"></ng-include>
+    <div  layout="column" class="shelf-view" flex="65" ng-show="advanced.equipment.type.id<4">
+        <md-toolbar class="md-white-theme config-subheader">
+            <md-subheader layout-padding class="source-subheader md-no-sticky">Shelf Configuration:  {{(advanced.equipment.name?advanced.equipment.name:'')+' @'+advanced.selectedWorkStation.name}}
+            </md-subheader>
+        </md-toolbar>
+        <md-content layout-padding class="shelf-body">
+            <div class="shelf-row" layout="row" layout-align="center center" ng-init="rowIndex = $index" ng-repeat="(i, val) in range(advanced.equipment.rows) track by $index">
+                <div data-drop="true" data-jqyoui-options="{hoverClass: 'hover-background'}"
+                     jqyoui-droppable="{multiple:true, stack: true, onDrop:'onDropToShelf'}" class="shelf-cell" ng-class="{'cell-filled': advanced.isCellFilled(i + ':'+ j)}" ng-init="columnIndex = $index" data-row="{{$parent.$index}}"
+                     data-column="{{$index}}" ng-repeat="(j, val2) in range(advanced.equipment.columns) track by $index">
+                    <div ng-repeat="item in advanced.workerData | filter:{equipmentDriver_config: i + ':'+ j, equipmentId: advanced.equipment.id, task: 'Pick' }">
+                        <div data-parent-id="" data-id="{{ item.id }}" data-index="{{ $index }}" data-type="workstation-part"
+                             data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', scroll:false, cursor:'crosshair', containment:$('body'), appendTo: 'body'}"
+                             jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">
+                            <div class="md-list-item-text cell-part-name" style="max-width: 118px">
+                                <h3>{{ item.name }}</h3>
+                                <h3>{{ item.part }}</h3>
+                            </div>
+                            </div>
+                            <md-divider ng-show="!$last"></md-divider>
+                    </div>
+                </div>
+            </div>
+        </md-content>
+    </div>
+    <div layout="column" flex>
+        <md-subheader class="md-no-sticky">Create Equipment</md-subheader>
+        <md-content ng-controller="DetailController as dtlctrl" layout-padding>
+            <form name="equipmentForm">
+                <md-input-container style="height: 83px;">
+                    <md-select md-on-close="advanced.announceTypeChange()" required ng-model="advanced.equipment.type" style="min-width: 200px;" placeholder="Type">
+                        <md-select-label>{{advanced.equipment.type ? advanced.equipment.type.name : 'Select type'}}</md-select-label>
+                        <md-option ng-value="t" ng-repeat="t in advanced.equipmentTypes">{{t.name}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container>
+                    <label for="name">Name</label>
+                    <input required type="text" id="name"
+                           ng-model="advanced.equipment.name" md-sidenav-focus>
+                    <div ng-messages="equipmentForm.description.$error">
+                        <div ng-if="advanced.equipment.name===null" ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label for="ipAddress">IP Address</label>
+                    <input type="text" id="ipAddress"
+                           ng-model="advanced.equipment.ipAddress">
+                </md-input-container>
+
+                <md-input-container ng-show="advanced.equipment.type.id<4">
+                    <label for="rows">Rows</label>
+                    <input min="1" type="number" id="rows"
+                           ng-model="advanced.equipment.rows">
+                </md-input-container>
+                <md-input-container ng-show="advanced.equipment.type.id<4">
+                    <label for="columns">Columns</label>
+                    <input min="1" max="6" type="number" id="columns"
+                           ng-model="advanced.equipment.columns">
+                </md-input-container>
+            </form>
+            <md-button ng-click="dtlctrl.close(); advanced.clearCreateForm()" class="md-primary">
+                Cancel
+            </md-button>
+            <md-button ng-click="advanced.createOrUpdateEquipment(); dtlctrl.close()" class="md-default md-raised">
+                Save
+            </md-button>
+        </md-content>
+    </div>
+
+</md-sidenav>

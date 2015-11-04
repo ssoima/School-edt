@@ -1,0 +1,18 @@
+<div ng-controller="SearchController as ctrl" layout="column" layout-align="center center" class="search-div">
+    <md-autocomplete class="search-field" ng-disabled="ctrl.isDisabled"
+                 md-no-cache="ctrl.noCache"
+                 md-selected-item="ctrl.selectedItem"
+                 md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                 md-search-text="ctrl.searchText"
+                 md-selected-item-change="ctrl.selectedItemChange(item)"
+                 md-items="item in ctrl.querySearch(ctrl.searchText)"
+                 md-item-text="item.display" md-min-length="0"
+                 placeholder="Search for anything...">
+        <md-item-template>
+          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+        </md-item-template>
+        <md-not-found>
+          No matches found for "{{ctrl.searchText}}".
+        </md-not-found>
+    </md-autocomplete>
+</div>

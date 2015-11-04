@@ -1,0 +1,16 @@
+﻿<md-dialog>
+    <md-dialog-content>
+        <md-input-container flex>
+            <textarea ng-model="myComment" rows="10" cols="10" class="task-comment-input" md-focus></textarea>
+        </md-input-container>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="save()" class="md-primary">
+            Save
+        </md-button>
+        <md-button ng-click="close()" class="md-primary">
+            Close
+        </md-button>
+    </div>
+</md-dialog>

@@ -1,0 +1,85 @@
+﻿<md-data-table class="table">
+    <div class="md-data-table-card-header" layout="row" layout-align="start center">
+        <div class="md-data-table-card-header-title">
+            <md-button ng-class="{'selected': advanced.isWorkstationSelected({id:null})}" ng-click="advanced.setSelectedWorkStation({id:null})">U/A</md-button>
+            <md-button ng-class="{'selected': advanced.isWorkstationSelected(worker)}" ng-click="advanced.setSelectedWorkStation(worker)" ng-repeat="worker in advanced.data.workers">
+            {{worker.name}}
+            </md-button>
+        </div>
+
+
+    </div>
+    <div class="table-content">
+        <div class="md-data-table-header" layout="row" layout-align="start center">
+            <md-checkbox aria-label="select"></md-checkbox>
+            <div class="md-data-table-header-column" flex="15" layout="row" layout-alignment="start center" ng-class="{'sorted': advanced.config.order_by==='task'}">
+                <i ng-if="advanced.config.order_by==='task'" class="material-icons {{advanced.config.order}}">arrow_forward</i>
+                Task
+            </div>
+            <div class="md-data-table-header-column" flex layout="row" ng-class="{'sorted': advanced.config.order_by==='part'}" layout-alignment="start center">
+                <i ng-if="advanced.config.order_by==='part'" class="material-icons {{advanced.config.order}}">arrow_forward</i>
+                Part
+            </div>
+            <div class="md-data-table-header-column" flex ng-class="{'sorted': advanced.config.order_by==='time'}" layout="row" layout-alignment="start center">
+                <i ng-if="advanced.config.order_by==='time'" class="material-icons {{advanced.config.order}}">arrow_forward</i>
+                Time
+            </div>
+            <div class="md-data-table-header-column" flex  ng-class="{'sorted': advanced.config.order_by==='time_lapse'}" layout="row" layout-alignment="start center">
+                <i ng-if="advanced.config.order_by==='time_lapse'" class="material-icons {{advanced.config.order}}">arrow_forward</i>
+                Time lapse
+            </div>
+            <div class="md-data-table-header-column" flex="25"  ng-class="{'sorted': advanced.config.order_by==='equipment'}" layout="row" layout-alignment="start center">
+                <i ng-if="advanced.config.order_by==='equipment'" class="material-icons {{advanced.config.order}}">arrow_forward</i>
+                Equipment
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <md-sortable id="sortableRows">
+            <div ng-repeat="item in advanced.workerData" >
+                <div class="md-data-table-row" layout="row" layout-align="start center"
+                     ng-class="{'md-data-table-last-row': $last, 'selected': advanced.isSelected(item)}">
+                    <md-checkbox aria-label="select" ng-click="advanced.toggle(item)"></md-checkbox>
+                    <div class="md-data-table-row-cell cell-text" flex="15">{{item.task}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex>{{item.part}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex>{{item.time}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex>{{item.time_lapse}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex="25">{{item.equipment}}</div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+        </md-sortable>
+    </div>
+    <div ng-show="!advanced.workerData.length" class="animate-show">
+        <div class=" md-data-table-footer md-data-table-row md-data-table-row-cell cell-text" layout="row" layout-align="start center">There are no tasks that belong to this workstation</div>
+        <md-divider></md-divider>
+    </div>
+
+    <div layout="row" layout-align="end center" class="md-data-table-footer">
+        <div ng-show="advanced.selectedItems.length" class="md-actions" layout="row" layout-align="end center">
+            <md-button ng-click="advanced.moveUp()" aria-label="top" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">vertical_align_top</md-icon>
+                Up
+            </md-button>
+            <md-button ng-click="advanced.moveDown()" aria-label="bottom" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">vertical_align_bottom</md-icon>
+                Down
+            </md-button>
+            <md-button ng-click="advanced.movePartTask($event)" aria-label="move" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">reply</md-icon>
+                Reassign
+            </md-button>
+            <md-button ng-click="advanced.unAssignTask()" aria-label="delete" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">remove_circle</md-icon>
+                Unassign
+            </md-button>
+
+
+            <!--md-button aria-label="more" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">more_vert</md-icon>
+            </md-button-->
+        </div>
+
+    </div>
+
+</md-data-table>
+

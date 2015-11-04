@@ -1,0 +1,14 @@
+<div layout="column" layout-align="center center">
+    <md-content class="browse-content">
+        <div ng-repeat="line in assembly.assembly_lines" ng-animate=" 'animate' ">
+            <md-card>
+                <md-card-content>
+                    <h2 ng-href="{{'/'}}"><a ng-href="{{'/browse/factory/'+routeParams.factoryId+'/line/'+line.id+''}}">{{ line.name}}</a></h2>
+                    <p>
+                        {{ line.description }}
+                    </p>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+</div>

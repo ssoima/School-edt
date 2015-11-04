@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D5522003-D1FF-4513-875D-D76991DEA681}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NextLAP.IP1.Models</RootNamespace>
+    <AssemblyName>NextLAP.IP1.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\DefaultAssemblyInfo.cs">
+      <Link>Properties\DefaultAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Base\BaseEntity.cs" />
+    <Compile Include="Base\ExtendedEntity.cs" />
+    <Compile Include="Base\ExtendedTimedEntity.cs" />
+    <Compile Include="Base\TimedEntity.cs" />
+    <Compile Include="Equipment\EquipmentDriverConfiguration.cs" />
+    <Compile Include="Equipment\EquipmentDriver.cs" />
+    <Compile Include="Equipment\EquipmentDriverConfigurationValue.cs" />
+    <Compile Include="Equipment\EquipmentType.cs" />
+    <Compile Include="Equipment\EquipmentConfiguration.cs" />
+    <Compile Include="Equipment\WorkstationTerminal.cs" />
+    <Compile Include="Manufacturing\Order.cs" />
+    <Compile Include="Manufacturing\OrderPartItem.cs" />
+    <Compile Include="Planning\BaseTaskAssignment.cs" />
+    <Compile Include="Planning\ManufacturingModel.cs" />
+    <Compile Include="Planning\Part.cs" />
+    <Compile Include="Planning\ProcessPlan.cs" />
+    <Compile Include="Planning\Task.cs" />
+    <Compile Include="Planning\TaskAssignment.cs" />
+    <Compile Include="Planning\StationTaskAssignment.cs" />
+    <Compile Include="Planning\TaskAssignmentImage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structure\AssemblyLine.cs" />
+    <Compile Include="Structure\Company.cs" />
+    <Compile Include="Structure\Factory.cs" />
+    <Compile Include="Structure\Section.cs" />
+    <Compile Include="Structure\Station.cs" />
+    <Compile Include="Structure\StationType.cs" />
+    <Compile Include="Structure\Worker.cs" />
+    <Compile Include="Structure\Workstation.cs" />
+    <Compile Include="Utils\Location.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{f141344e-a212-4a2f-931f-8006b6ab00a9}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

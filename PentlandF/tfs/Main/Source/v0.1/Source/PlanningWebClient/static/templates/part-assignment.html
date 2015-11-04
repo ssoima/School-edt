@@ -1,0 +1,42 @@
+<!--div layout="row" ng-show="searchctrl.isStepDone()" layout-align="center center" class="step-complete">All parts have been assigned</div-->
+<md-list>
+    <div ng-repeat="item in searchctrl.filteredResults" ng-hide="item.status==='complete' && !searchctrl.unassignedOnly">
+        <div class="draggable-box" data-parent-id="" data-task-count="{{ item.tasks.length }}" data-id="{{ item.id }}" data-index="{{ $index }}" data-type="part"
+             data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', scroll:false, cursor:'crosshair', containment:$('body'), appendTo: 'body'}"
+             jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart: 'drag'}" ng-click="item.is_expanded = !item.is_expanded">
+            <md-list-item md-ink-ripple="#2196f3" class="md-3-line">
+                <md-icon style="margin:auto;" ng-class="{'toggled': !item.is_expanded, 'transparent': !item.tasks.length}"
+                         md-svg-src="md-toggle-arrow" class="md-toggle-icon"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>{{ item.name}}</h3>
+                    <h4>{{item.number}}</h4>
+                    <p>{{ uniqueOfProperty(item.tasks, 'station').length? uniqueOfProperty(item.tasks, 'station'):''}}</p>
+                </div>
+                <span layout="row" layout-align="end center" style="margin:auto;">
+                    <md-icon ng-if="item.status==='nothing'" md-svg-src="/static/images/ic_unassigned_24px.svg"></md-icon>
+                    <md-icon ng-if="item.status==='partial'" md-svg-src="/static/images/ic_partially_assigned_24px.svg"></md-icon>
+                    <!--div ng-class="{'circle': item.status!=='complete',
+                    'background-gray': item.status==='nothing', 'background-orange': item.status==='partial'}"></div-->
+                </span>
+            </md-list-item>
+        </div>
+        <md-list class="animate-show inner-list" ng-show="item.is_expanded && item.tasks.length" id="task-list" flex>
+            <div class="draggable-box" data-type="task" data-name="" data-parent-id="{{ item.id }}" data-task-count="1" data-index="{{ $index }}" data-id="{{ task.id }}" data-drag="true"
+                 data-jqyoui-options="{revert: 'invalid', helper: 'clone', scroll:false, cursor:'crosshair', containment:$('body'), appendTo: 'body'}"
+                 jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart: 'drag'}" style="color: #000;"
+                 aria-controls="task-item" ng-repeat="task in item.tasks" flex>
+                <md-list-item md-ink-ripple="#2196f3" class="md-2-line">
+                    <div class="md-list-item-text child-task inner-list-item-text">
+                        <h3 style="">{{ task.name }}</h3>
+                        <p>{{ task.station ? task.station : '' }}</p>
+                    </div>
+                    <span layout="row" layout-align="end center" style="margin:auto;">
+                        <!--div ng-class="{'circle': !task.isAssigned && item.status!=='complete', 'background-gray': !task.isAssigned}"></div-->
+                        <md-icon ng-if="!task.isAssigned" md-svg-src="/static/images/ic_unassigned_24px.svg"></md-icon>
+                    </span>
+                </md-list-item>
+            </div>
+        </md-list>
+        <md-divider ng-show="!$last"></md-divider>
+    </div>
+</md-list>

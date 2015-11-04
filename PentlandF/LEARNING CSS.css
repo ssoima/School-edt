@@ -1,0 +1,147 @@
+/* 
+Css learning
+
+selektor{
+	eigenschaft: wert;
+}
+
+mit dem link Element kann ich verschiedene elemente linken:
+<link href="css/style.css" type="text.css" rel="stylesheet" media="pentru ce fel de mediu sa fie stilul asta, gen telefon, screen, sau cand printezi">
+
+*{
+	
+} --applyes to all
+
+div{
+	eigenschaft:wert;
+} -- passiert das für alle divs
+
+eine Klasse wird mit einem Punkt und den Klassennamen gekennzeichnet.
+
+.klassenname{
+	backgraund:#FFF;
+}
+
+IDSElEKTOR(genauester selektor, der uberhaupt möglich ist)
+*idnamen{
+	backgraund:#FF0000;
+
+}
+
+h1, h2, h3{
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+PSEUDOKLASSEN:
+a{
+	color:#000;
+}
+
+a:hover{
+	color:blue;
+} --wenn der user mit die mause überdem link ist
+
+a:visited{
+	color:#666;
+}
+
+input{
+	color:#666;
+}
+
+input:focus{
+	color: #000;
+}
+
+p:first-child{
+	font-weight:bold;
+}
+
+
+Neben media, das ein wenig veraltet ist, muss ich, wenn ich zb für smartphone, tablet, und iphone4 versciedene layouts haben will wie folgt arbeiten.
+
+<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, initial-scale=1.0"
+
+<link rel="stylesheet" href="css/smartphone.css media="only screen and (min-device-width:320px) and (max-device-width:480px)">
+<link rel="stylesheet" href="css/ipad-portrait.css media="only screen and (min-device-width:760px) and (max-device-width:1024px) and (orientation:portrait)">
+<link rel="stylesheet" href="css/ipad-portrait.css media="only screen and (-webkit-min-device-pixel-ratio:1.5)">
+
+Kombinatoren
+
+*content p{
+	font-size: 16px;
+}
+
+input[type="text"]
+
+a[href^=“https“]{ 			--^ist ein circumflex(in diesem Beispiel, bedeutet es, dass der link mit https anfangen sollte)
+	color:green;
+}
+a[href$=".php"]:after{
+	content: "(php-Datei)";
+}
+a[href*="www."]{
+	color:grey;
+}
+
+html[lang|="de"] *de{
+	
+}
+
+tr{
+	background: #fff;
+}
+
+tr:nth-child(2n+1){
+	background: #CCC;
+}
+
+::selection{
+	background: #ccc;
+	color: #000;
+}
+
+CMS- content management System
+ERP- Enterprise resource 
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

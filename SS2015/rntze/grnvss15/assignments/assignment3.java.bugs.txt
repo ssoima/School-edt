@@ -1,0 +1,31 @@
+Das Rahmenprogramm assignment3/java hatte bis SVN r17281 noch 2 kleinere Bugs
+die es unkompilierbar gemacht haben.
+
+Ein "abgabe" Ordner Relativer Patch gibt es hier:
+^/assignments/assignment3.java.before.r17281.patch
+
+
+(java/)src/Arguments.java: Es gab im printHelp() UTF-8 Zeichen, die javac nicht
+                           mochte. Zum aktualisieren reicht es die die neue
+                           Version zu kopieren.
+
+
+(java/)src/Assignment3.java: Enums und Java haben sich nicht so, insbesondere
+                             wenn man von 1 zählen will.
+                             Lösung: Der enum packtTypes am Anfang der Datei
+
+                               enum packtTypes{
+                                       EXCEEDED = 1,
+                                       UNREACHABLE,
+                                       ECHOREPLY
+                               }
+
+                             muss durch
+
+                               static final int EXCEEDED = 1;
+                               static final int UNREACHABLE = 2;
+                               static final int ECHOREPLY = 3;
+
+                             ersetzt werden. Weitere Änderungen sind nur in den
+                             Docstring die Referenzen auf den Enum Type.
+

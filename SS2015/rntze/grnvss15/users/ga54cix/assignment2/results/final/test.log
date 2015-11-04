@@ -1,0 +1,18 @@
+Test Launchable: Failed
+Test Sends data on Interface: Precondition was not statisfied
+Test Rejects invalid address: Precondition was not statisfied
+Test Sends correct Ethernet Header: Precondition was not statisfied
+Test Sends correct IPv6 Header: Precondition was not statisfied
+Test Sends correct ICMPv6 Header: Precondition was not statisfied
+Test Sends correct ICMPv6 Payload: Precondition was not statisfied
+Test Sends correct Neighbor Solicitation: Precondition was not statisfied
+Test Timeout without answer: Precondition was not statisfied
+Test Support timeout switch: Precondition was not statisfied
+Test Accepts correct Neighbor Advertisement: Precondition was not statisfied
+Test Rejects invalid Ethernet Header: Precondition was not statisfied
+Test Rejects invalid IPv6 Header: Precondition was not statisfied
+Test Ignores Flow Label and Traffic Class: Precondition was not statisfied
+Test Handles IPv6 Extension Headers: Precondition was not statisfied
+Test Rejects invalid ICMPv6 Header: Precondition was not statisfied
+Test Rejects invalid Neighbor Advertisement: Precondition was not statisfied
+Test Handles Neighbor Discovery options correctly: Precondition was not statisfied

@@ -1,0 +1,115 @@
+﻿<md-data-table class="table">
+    <div class="md-data-table-card-header" layout="row" layout-align="start center">
+        <div class="md-data-table-card-header-title">
+            <md-button ng-class="{'selected': advanced.isWorkstationSelected(worker)}"
+                       ng-click="advanced.setSelectedWorkStation(worker)" ng-repeat="worker in advanced.data.workers">
+            {{worker.name}}{{' ('+advanced.getNumberOfTasks(worker.id)+')'}}
+            </md-button>
+            <md-button ng-class="{'selected': advanced.isWorkstationSelected({id:null})}"
+                       ng-click="advanced.setSelectedWorkStation({id:null})">U/A{{' ('+advanced.getNumberOfTasks(null)+')'}}</md-button>
+        </div>
+    </div>
+    <div class="table-content" data-drop="true" data-jqyoui-options="{hoverClass: 'blue200-background'}"
+         jqyoui-droppable="{multiple:true, stack: true, onDrop:'onDrop'}">
+        <div class="md-data-table-header" layout="row" layout-align="start center">
+            <md-checkbox aria-label="select" ng-model="advanced.selectAllModel"></md-checkbox>
+            <div class="md-data-table-header-column" flex="15" layout="row" layout-alignment="start center" ng-class="{'sorted': advanced.config.order_by==='task'}">
+                Task
+            </div>
+            <div class="md-data-table-header-column" flex layout="row" ng-class="{'sorted': advanced.config.order_by==='part'}" layout-alignment="start center">
+                Part
+            </div>
+            <div class="md-data-table-header-column" flex ng-class="{'sorted': advanced.config.order_by==='time'}" layout="row" layout-alignment="start center">
+                Time
+            </div>
+            <div class="md-data-table-header-column" flex  ng-class="{'sorted': advanced.config.order_by==='time_lapse'}" layout="row" layout-alignment="start center">
+                Time lapse
+            </div>
+            <div class="md-data-table-header-column" flex="25"  ng-class="{'sorted': advanced.config.order_by==='equipment'}" layout="row" layout-alignment="start center">
+                Equipment
+            </div>
+            <div class="md-data-table-header-column" flex layout="row" layout-alignment="start center">
+                WIS
+            </div>
+            <div class="md-data-table-header-column" flex  layout="row" layout-alignment="start center">
+                Image
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <md-sortable id="sortableRows">
+            <div ng-repeat="item in advanced.workerData" >
+                <div class="md-data-table-row" layout="row" layout-align="start center"
+                     ng-class="{'md-data-table-last-row': $last, 'selected': item.isSelected}">
+                    <md-checkbox aria-label="select" ng-click="advanced.toggle(item)" ng-model="item.isSelected"></md-checkbox>
+                    <div class="md-data-table-row-cell cell-text" flex="15">{{item.name}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex>{{item.part}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex>{{item.time}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex>{{item.time_lapse}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex="25">{{item.equipment}}</div>
+                    <div class="md-data-table-row-cell cell-text" flex><i ng-if="item.showOnWorkerscreen" class="material-icons">done</i></div>
+                    <div class="md-data-table-row-cell cell-text" flex><i ng-if="item.hasImage" class="material-icons">done</i></div>
+                </div>
+                <md-divider></md-divider>
+            </div>
+        </md-sortable>
+        <div ng-show="!advanced.workerData.length" class="animate-show">
+            <div class=" md-data-table-footer md-data-table-row md-data-table-row-cell cell-text" layout="row" layout-align="start center">There are no tasks that belong to this workstation</div>
+            <md-divider></md-divider>
+        </div>
+    </div>
+
+    <div layout="row" layout-align="end center" class="md-data-table-footer">
+        <div ng-show="advanced.selectedItems.length" class="md-actions" layout="row" layout-align="end center">
+            <md-button ng-click="advanced.moveUp()" ng-show="advanced.selectedWorkStation.id" aria-label="top" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">vertical_align_top</md-icon>
+                Up
+            </md-button>
+            <md-button ng-click="advanced.moveDown()" ng-show="advanced.selectedWorkStation.id" aria-label="bottom" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">vertical_align_bottom</md-icon>
+                Down
+            </md-button>
+            <md-button ng-click="advanced.moveItem($event)" aria-label="move" class="md-action-icon md-action-button">
+                <md-icon md-svg-src="/static/images/ic_reassign_24px.svg"></md-icon>
+                Reassign
+            </md-button>
+            <md-button ng-click="advanced.unAssignTask()" aria-label="delete" class="md-action-icon md-action-button">
+                <md-icon md-svg-src="/static/images/ic_unassign_24px.svg"></md-icon>
+                Unassign
+            </md-button>
+            <md-button ng-click="advanced.toggleWIS()" aria-label="delete" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">dvr</md-icon>
+                WIS
+            </md-button>
+            <md-button ng-click="advanced.imageDialog($event)" ng-show="advanced.selectedItems.length == 1" aria-label="delete" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">insert_photo</md-icon>
+                Image
+            </md-button>
+            <md-button ng-click="advanced.taskEquipmentConfiguration($event)" ng-show="advanced.selectedItems.length == 1" aria-label="delete" class="md-action-icon md-action-button">
+                <md-icon md-font-set="material-icons">settings</md-icon>
+                Equipment
+            </md-button>
+        </div>
+
+    </div>
+</md-data-table>
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+    <md-subheader class="md-no-sticky">Image Upload</md-subheader>
+    <md-content ng-controller="DetailController as dtlctrl" layout-padding>
+        <form name="imageUploadForm" style="padding-bottom:50px">
+            <div> <label>File:</label><br>
+                <input style="max-width: 256px;" type="file" ngf-select ng-model="advanced.file" ngf-accept="'image/*'"> </div>
+        </form>
+
+        <div ng-if = "advanced.imageUrl != ''" >
+            <img ng-src="{{advanced.imageUrl}}" alt="Task Image Preview" width="200"><br>
+        </div>
+        
+        <md-button ng-click="dtlctrl.close()" class="md-primary">
+            Cancel
+        </md-button>
+        <md-button ng-click="advanced.uploadImageFile(); " class="md-default md-raised">
+            Save
+        </md-button>
+    </md-content>
+</md-sidenav>
+

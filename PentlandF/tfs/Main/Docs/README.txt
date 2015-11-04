@@ -1,0 +1,1 @@
+Use this for product-related documentation that you ship to your customers. This could include installation and deployment guides, operations guides, and Help files.

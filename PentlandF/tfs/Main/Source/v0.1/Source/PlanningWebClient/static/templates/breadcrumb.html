@@ -1,0 +1,5 @@
+<div ng-if="item.exists != undefined" ng-repeat="item in ctrl.advanced_breadcrumb | orderBy: 'level'" layout="row" layout-align="start center">
+    <md-icon ng-if="!$first" md-menu-origin md-font-set="material-icons">chevron_right</md-icon>
+    <div ng-click="!$last && ctrl.navigateTo(item.href)" ng-class="{'active': ctrl.stepId==5}" class="main-nav-item clickable">{{item.display}}</div>
+
+</div>

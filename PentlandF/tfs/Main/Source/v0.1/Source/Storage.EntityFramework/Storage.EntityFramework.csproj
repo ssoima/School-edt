@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{31829714-3234-4922-AE0D-D6E939655A35}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NextLAP.IP1.Storage.EntityFramework</RootNamespace>
+    <AssemblyName>NextLAP.IP1.Storage.EntityFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Pentlandfirth.Common">
+      <HintPath>..\..\..\SharedBinaries\Pentlandfirth.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Pentlandfirth.Data">
+      <HintPath>..\..\..\SharedBinaries\Pentlandfirth.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Pentlandfirth.Data.EF">
+      <HintPath>..\..\..\SharedBinaries\Pentlandfirth.Data.EF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\DefaultAssemblyInfo.cs">
+      <Link>Properties\DefaultAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Ip1BaseRepository.cs" />
+    <Compile Include="Ip1Context.cs" />
+    <Compile Include="Migrations\201505281315271_Initial.cs" />
+    <Compile Include="Migrations\201505281315271_Initial.Designer.cs">
+      <DependentUpon>201505281315271_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506251502585_Added equipment entities.cs" />
+    <Compile Include="Migrations\201506251502585_Added equipment entities.Designer.cs">
+      <DependentUpon>201506251502585_Added equipment entities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507032005463_Added Order entities.cs" />
+    <Compile Include="Migrations\201507032005463_Added Order entities.Designer.cs">
+      <DependentUpon>201507032005463_Added Order entities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507061550271_Extended equipment configuration with name.cs" />
+    <Compile Include="Migrations\201507061550271_Extended equipment configuration with name.Designer.cs">
+      <DependentUpon>201507061550271_Extended equipment configuration with name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507071427403_Process plan extended.cs" />
+    <Compile Include="Migrations\201507071427403_Process plan extended.Designer.cs">
+      <DependentUpon>201507071427403_Process plan extended.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507161355190_Task assignment Image.cs" />
+    <Compile Include="Migrations\201507161355190_Task assignment Image.Designer.cs">
+      <DependentUpon>201507161355190_Task assignment Image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507281012171_Added configuration to equipment.cs" />
+    <Compile Include="Migrations\201507281012171_Added configuration to equipment.Designer.cs">
+      <DependentUpon>201507281012171_Added configuration to equipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510221342067_Not nullable StationId on Workstation.cs" />
+    <Compile Include="Migrations\201510221342067_Not nullable StationId on Workstation.Designer.cs">
+      <DependentUpon>201510221342067_Not nullable StationId on Workstation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AssemblyLineRepository.cs" />
+    <Compile Include="Repositories\CompanyRepository.cs" />
+    <Compile Include="Repositories\EquipmentDriverConfigurationRepository.cs" />
+    <Compile Include="Repositories\EquipmentDriverConfigurationValuesRepository.cs" />
+    <Compile Include="Repositories\EquipmentDriverRepository.cs" />
+    <Compile Include="Repositories\EquipmentTypeRepository.cs" />
+    <Compile Include="Repositories\FactoryRepository.cs" />
+    <Compile Include="Repositories\Ip1Repositories.cs" />
+    <Compile Include="Repositories\OrderPartItemRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\PartRepository.cs" />
+    <Compile Include="Repositories\ProcessPlanRepository.cs" />
+    <Compile Include="Repositories\SectionRepository.cs" />
+    <Compile Include="Repositories\StationRepository.cs" />
+    <Compile Include="Repositories\StationTaskAssignmentRepository.cs" />
+    <Compile Include="Repositories\StationTypeRepository.cs" />
+    <Compile Include="Repositories\TaskAssignmentImageRepository.cs" />
+    <Compile Include="Repositories\TaskAssignmentRepository.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
+    <Compile Include="Repositories\EquipmentConfigurationRepository.cs" />
+    <Compile Include="Repositories\WorkstationRepository.cs" />
+    <Compile Include="Repositories\WorkstationTerminalRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{f141344e-a212-4a2f-931f-8006b6ab00a9}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Storage.Models\Storage.Models.csproj">
+      <Project>{d5522003-d1ff-4513-875d-d76991dea681}</Project>
+      <Name>Storage.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505281315271_Initial.resx">
+      <DependentUpon>201505281315271_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506251502585_Added equipment entities.resx">
+      <DependentUpon>201506251502585_Added equipment entities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507032005463_Added Order entities.resx">
+      <DependentUpon>201507032005463_Added Order entities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507061550271_Extended equipment configuration with name.resx">
+      <DependentUpon>201507061550271_Extended equipment configuration with name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507071427403_Process plan extended.resx">
+      <DependentUpon>201507071427403_Process plan extended.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507161355190_Task assignment Image.resx">
+      <DependentUpon>201507161355190_Task assignment Image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507281012171_Added configuration to equipment.resx">
+      <DependentUpon>201507281012171_Added configuration to equipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510221342067_Not nullable StationId on Workstation.resx">
+      <DependentUpon>201510221342067_Not nullable StationId on Workstation.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

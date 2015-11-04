@@ -1,0 +1,15 @@
+<md-list>
+    <div ng-repeat="item in searchctrl.equipmentTypes">
+        <div class="draggable-box" data-parent-id="" data-id="{{ item.id }}" data-index="{{ $index }}" data-type="part"
+             data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone', scroll:false, cursor:'crosshair', containment:$('body'), appendTo: 'body'}"
+             jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep', onStart: 'drag'}" ng-click="item.is_expanded = !item.is_expanded">
+            <md-list-item md-ink-ripple="#2196f3" class="md-2-line">
+                <div class="md-list-item-text">
+                    <h3>{{ item.name }}</h3>
+                </div>
+            </md-list-item>
+        </div>
+
+        <md-divider ng-show="!$last"></md-divider>
+    </div>
+</md-list>

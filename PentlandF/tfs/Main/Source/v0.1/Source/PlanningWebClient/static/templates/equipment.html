@@ -1,0 +1,20 @@
+<md-subheader layout-padding class="background-f5 overview-header md-no-sticky">Equipments</md-subheader>
+<div id="equipment" class="content-overview" layout="column" style="max-width: 1366px !important;">
+    <md-grid-list id="equipmentsContainer" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3" md-row-height-gt-md="6:5"
+                  md-row-height="6:5" md-gutter="18px" md-gutter-gt-sm="18px">
+        <md-grid-tile ng-repeat="equipment_rec in equipment.equipments" md-colspan-sm="1" class="tile" id="{{ $index }}"
+                      data-drop="true" data-jqyoui-options="{hoverClass: 'blue200-background'}"
+                      jqyoui-droppable="{index: {{$index}}, multiple:true, stack: true, onOver: 'onOver', onDrop:'onDropEquipment'}">
+            <img ng-if="equipment_rec.name!='Other tool'" class="equipment-icon" src="{{equipment.getImage(equipment_rec.name)}}"></img>
+            <md-icon ng-if="equipment_rec.name=='Other tool'" class="equipment-icon" md-svg-src="{{equipment.getImage(equipment_rec.name)}}"></md-icon>
+            <span class="tile-span">&nbsp;</span>
+            <md-grid-tile-footer class="tile-footer">
+                <div layout="row" layout-align="start center">
+                    <h3 flex>{{equipment_rec.name}}</h3>
+
+                </div>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+    <h1 style="color: rgba(0,0,0,0.67) !important;" ng-show="!equipment.equipments.length">No station selected</h1>
+</div>
